@@ -1,0 +1,13 @@
+{
+  "notice": "Preguntas de demostración. Sustituir y validar con la profesora al recibir el temario.",
+  "normal": [
+    {"prompt": "Un dado tiene las caras 1 a 6. ¿Cuál es la media de esos seis números?", "choices": ["3", "3,5", "4", "6"], "answer": 1, "explanation": "La suma es 21; al dividir entre 6 se obtiene 3,5."},
+    {"prompt": "¿Qué conjunto tiene mayor dispersión?", "choices": ["5, 5, 5", "4, 5, 6", "1, 5, 9", "Todos igual"], "answer": 2, "explanation": "1, 5, 9 tiene valores más alejados de su media, 5."},
+    {"prompt": "En una bolsa hay 3 fichas azules y 1 roja. ¿Cuál es la probabilidad de sacar la roja?", "choices": ["1/2", "1/3", "1/4", "3/4"], "answer": 2, "explanation": "Hay una ficha roja entre cuatro fichas equiprobables."},
+    {"prompt": "¿Cuál es la mediana de 2, 3, 7, 9, 20?", "choices": ["3", "7", "8,2", "9"], "answer": 1, "explanation": "Con los datos ordenados, 7 ocupa la posición central."}
+  ],
+  "hard": [
+    {"prompt": "Una moneda equilibrada cayó cara cinco veces seguidas. ¿Cuál es la probabilidad de cara en el siguiente lanzamiento independiente?", "choices": ["Menos de 1/2", "1/2", "Más de 1/2", "Es imposible saberlo"], "answer": 1, "explanation": "Los lanzamientos son independientes: los anteriores no cambian la probabilidad del siguiente."},
+    {"prompt": "Un grupo tiene 10 personas con media 6 y otro 20 personas con media 9. ¿Cuál es la media conjunta?", "choices": ["7,5", "8", "8,5", "15"], "answer": 1, "explanation": "La media ponderada es (10 × 6 + 20 × 9) / 30 = 8."}
+  ]
+}

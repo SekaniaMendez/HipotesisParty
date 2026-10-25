@@ -1,0 +1,13 @@
+[project]
+name = "hipotesis-party"
+version = "0.1.0"
+description = "Laberinto multijugador educativo: raylib + FastAPI"
+requires-python = ">=3.12,<3.15"
+dependencies = ["fastapi>=0.115,<1", "uvicorn[standard]>=0.34,<1"]
+
+[dependency-groups]
+dev = ["pytest>=8,<10", "httpx>=0.28,<1", "websockets>=14,<17"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

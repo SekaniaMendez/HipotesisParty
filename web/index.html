@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#141d1b">
+  <meta name="referrer" content="no-referrer">
+  <title>Hipótesis Party · El laberinto de la profe</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23141d1b'/%3E%3Ctext x='13' y='48' font-size='48' fill='%23f2ca7e'%3E?%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/build/game.js" defer></script>
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <main id="landing">
+    <header class="brand"><span class="brand-icon">H<span>?</span></span><span>HIPÓTESIS PARTY</span><small>EDICIÓN AULA · 01</small></header>
+    <div class="landing-grid">
+      <section class="intro">
+        <div class="eyebrow"><span class="dot"></span> UNA INVESTIGACIÓN CONTRA RELOJ</div>
+        <h1>Seguí las pistas.<br>Cuestioná todo.<br><em>Evitá a la profe.</em></h1>
+        <p>Un laberinto, muchas preguntas y una profesora que viene a buscarte. Tu mejor herramienta es lo que sabés.</p>
+        <div class="legend"><span><i class="swatch mint"></i>Vos investigás</span><span><i class="swatch coral"></i>La profe persigue</span><span><i class="swatch gold"></i>Las pistas suman</span></div>
+        <div class="maze-art" aria-hidden="true"><div class="art-grid"></div><span class="art-clue">?</span><span class="art-student">●</span><span class="art-teacher">P</span><span class="art-label">¿ESCUCHASTE ESOS PASOS?</span></div>
+      </section>
+      <section class="entry-card">
+        <div class="card-number">01 / TU PUNTO DE PARTIDA</div>
+        <h2>Entrá al laberinto</h2><p>La aventura empieza con un código.</p>
+        <form id="join-form">
+          <label for="room-code">CÓDIGO DE LA SALA</label>
+          <input id="room-code" name="code" placeholder="ABCDE" maxlength="5" pattern="[A-Za-z2-9]{5}" autocapitalize="characters" autocomplete="off" required>
+          <label for="nickname">TU APODO</label>
+          <input id="nickname" name="name" placeholder="¿Cómo te llamamos?" maxlength="20" autocomplete="nickname" required>
+          <button class="primary" id="join-button" type="submit">Entrar a la sala <span>→</span></button>
+        </form>
+        <div class="entry-note"><span>◇</span> Hasta 22 investigadores. Jugá desde tu celular.</div>
+        <details id="director-entry"><summary>Soy el director de la partida <span>↗</span></summary>
+          <form id="create-form"><label for="minutes">DURACIÓN DE LA PARTIDA</label>
+            <select id="minutes"><option value="15">15 minutos</option><option value="20">20 minutos</option><option value="1">1 minuto · prueba rápida</option></select>
+            <button class="secondary" type="submit">Crear una sala</button>
+          </form>
+        </details>
+      </section>
+    </div>
+    <footer><span>ESTADÍSTICA & ANÁLISIS DE DATOS</span><span>Prototipo · preguntas de demostración</span></footer>
+  </main>
+
+  <main id="game" hidden>
+    <header class="game-header">
+      <a class="wordmark" href="/">H<span>?</span><span class="wordmark-text">HIPÓTESIS PARTY</span></a>
+      <div class="room-badge">SALA <b id="game-code">—</b></div>
+      <div id="connection" role="status"><span class="dot"></span><span id="connection-text">Conectando</span></div>
+      <button id="sound-button" class="icon-button" aria-label="Activar sonido" title="Activar sonido">♪</button>
+      <button id="fullscreen-button" class="icon-button" aria-label="Pantalla completa" title="Pantalla completa">⛶</button>
+    </header>
+    <div class="game-layout">
+      <section class="play-area">
+        <div class="play-top"><div><div class="eyebrow" id="role-label">INVESTIGADOR</div><h1 id="view-title">La evidencia te espera.</h1></div><div class="timer"><small>TIEMPO RESTANTE</small><strong id="timer">15:00</strong></div></div>
+        <div class="map-frame" id="map-frame">
+          <canvas id="canvas" tabindex="0" aria-label="Laberinto multijugador"></canvas>
+          <div class="map-corner"><span class="dot"></span><span id="map-caption">EXPLORACIÓN EN VIVO</span></div>
+          <div id="renderer-status">Preparando el laberinto…</div>
+          <div id="phase-overlay" class="phase-overlay" hidden><span class="eyebrow" id="phase-label">SALA DE ESPERA</span><h2 id="phase-title">La profe está por llegar.</h2><p id="phase-copy">Cuando todos estén listos, el director abre el laberinto.</p></div>
+          <div id="podium" class="phase-overlay" hidden><span class="eyebrow">LA EVIDENCIA TIENE LA ÚLTIMA PALABRA</span><h2>El podio</h2><div id="podium-list"></div><p>Los empates comparten posición.</p></div>
+          <div id="protection" hidden>◇ Protección · <span id="protection-seconds">8</span>s</div>
+        </div>
+        <div class="event-line"><span id="event-icon">↳</span><p id="event" aria-live="polite">La investigación está por comenzar.</p></div>
+        <div class="mobile-controls" id="controls" hidden>
+          <div class="dpad" aria-label="Controles de movimiento"><button data-direction="up" aria-label="Arriba">↑</button><button data-direction="left" aria-label="Izquierda">←</button><button data-direction="down" aria-label="Abajo">↓</button><button data-direction="right" aria-label="Derecha">→</button></div>
+          <button id="interact" class="primary" disabled>◇ Investigar</button>
+          <p id="control-hint">WASD o flechas para moverte · E para investigar</p>
+        </div>
+      </section>
+      <aside class="sidebar">
+        <section id="host-tools" hidden>
+          <div class="eyebrow">MESA DEL DIRECTOR</div><h2>Todo listo para empezar.</h2>
+          <p class="muted">Compartí el código con estudiantes y abrí las otras vistas.</p>
+          <div class="big-code" id="big-code">—</div>
+          <button id="copy-invite" class="secondary">Copiar invitación de estudiantes ↗</button>
+          <a id="teacher-link" class="link-button" target="_blank" rel="noopener">Abrir control de la profe ↗</a>
+          <a id="projector-link" class="link-button" target="_blank" rel="noopener">Abrir proyector ↗</a>
+          <div class="host-buttons"><button id="start" class="primary">Comenzar partida →</button><button id="pause" class="secondary" hidden>Pausar</button><button id="finish" class="quiet" hidden>Terminar y mostrar podio</button></div>
+        </section>
+        <section id="student-stats" hidden><div class="eyebrow">TU INVESTIGACIÓN</div><div class="stats"><div><strong id="score">0</strong><span>PUNTOS</span></div><div><strong id="clues">0<span>/8</span></strong><span>PISTAS</span></div></div></section>
+        <section id="teacher-info" hidden><div class="eyebrow">EL CONTROL ES TUYO</div><h2>Que se escuchen<br>tus pasos.</h2><p class="muted">Elegí tu ruta con las flechas o WASD. Alcanzá a un estudiante para activar su desafío.</p><div class="teacher-note" id="teacher-note">Buscando investigadores…</div></section>
+        <section class="ranking-section"><div class="section-heading"><span class="eyebrow">INVESTIGADORES</span><span id="player-count">0 / 22</span></div><ol id="ranking"></ol><p id="empty-ranking" class="muted">Todavía no ha entrado nadie.</p></section>
+        <section class="how-to"><div class="eyebrow">LAS REGLAS DEL PASILLO</div><p><i class="swatch gold"></i> Estación resuelta <b>+10</b></p><p><i class="swatch coral"></i> Desafío de la profe <b>+20 / −5</b></p><p><i class="swatch mint"></i> Después de responder <b>8s de escudo</b></p><small>Contenido provisional. Las preguntas finales se ajustarán al curso.</small></section>
+      </aside>
+    </div>
+  </main>
+
+  <dialog id="question-dialog" aria-labelledby="question-prompt"><form method="dialog" id="question-form">
+    <div class="question-heading"><span class="eyebrow" id="question-kind">ESTACIÓN DE PISTAS</span><span id="question-time">30s</span></div>
+    <h2 id="question-prompt"></h2><div id="answer-choices"></div><p class="muted">Tu personaje está protegido mientras respondés.</p>
+  </form></dialog>
+  <dialog id="feedback-dialog" aria-labelledby="feedback-title"><span class="eyebrow" id="feedback-label">RESULTADO</span><h2 id="feedback-title"></h2><p id="feedback-copy"></p><button class="primary" id="feedback-close">Seguir investigando →</button></dialog>
+  <dialog id="finish-dialog" aria-labelledby="finish-title"><span class="eyebrow">CIERRE DE LA INVESTIGACIÓN</span><h2 id="finish-title">¿Mostramos el podio?</h2><p>La partida termina para todos los participantes.</p><button class="primary" id="finish-confirm">Cerrar partida y ver podio →</button><button class="secondary" id="finish-cancel">Volver al juego</button></dialog>
+  <div id="toast" role="status" hidden></div>
+</body>
+</html>

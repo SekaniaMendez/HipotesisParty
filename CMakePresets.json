@@ -1,0 +1,19 @@
+{
+    "version": 3,
+    "configurePresets": [
+        {
+            "name": "web-debug",
+            "displayName": "WebAssembly Debug",
+            "binaryDir": "${sourceDir}/build-web",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "web-debug",
+            "configurePreset": "web-debug"
+        }
+    ]
+}

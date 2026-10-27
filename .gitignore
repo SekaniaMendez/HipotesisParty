@@ -1,19 +1,130 @@
-CMakeLists.txt.user
-CMakeCache.txt
-CMakeFiles
-CMakeScripts
-Testing
-Makefile
-cmake_install.cmake
-install_manifest.txt
-compile_commands.json
-CTestTestfile.cmake
-_deps
-CMakeUserPresets.json
+# ==========================================
+# HypothesisParty - Git Ignore
+# C++17 | CMake | Raylib | C# | ASP.NET Core
+# ==========================================
 
-# CLion
-#  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
-#  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
-#  and can be added to the global gitignore or merged into this file.  For a more nuclear
-#  option (not recommended) you can uncomment the following to ignore the entire idea folder.
-#cmake-build-*
+# ------------------------------------------
+# C++ / CMake
+# ------------------------------------------
+build/
+build-web/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+CTestTestfile.cmake
+compile_commands.json
+Makefile
+install_manifest.txt
+Testing/
+
+# Ninja
+.ninja_deps
+.ninja_log
+build.ninja
+rules.ninja
+
+# Compiled binaries and libraries
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.so.*
+*.dylib
+*.dll
+*.exe
+*.out
+*.app/
+*.pdb
+*.ilk
+*.exp
+
+# ------------------------------------------
+# C# / .NET / ASP.NET Core
+# ------------------------------------------
+**/bin/
+**/obj/
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+
+# .NET user settings
+*.csproj.user
+*.suo
+*.user
+*.rsuser
+
+# Local secrets
+**/secrets.json
+**/appsettings.Development.local.json
+
+# ------------------------------------------
+# IDEs / Editors
+# ------------------------------------------
+
+# Visual Studio Code
+.vscode/*
+!.vscode/extensions.json
+
+# Visual Studio
+.vs/
+*.VC.db
+*.VC.opendb
+
+# JetBrains Rider / CLion
+.idea/
+*.sln.iml
+
+# ------------------------------------------
+# Operating Systems
+# ------------------------------------------
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+
+# ------------------------------------------
+# Logs / Temporary Files
+# ------------------------------------------
+*.log
+logs/
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# ------------------------------------------
+# Environment Variables / Secrets
+# ------------------------------------------
+.env
+.env.*
+!.env.example
+
+# ------------------------------------------
+# Test Results / Coverage
+# ------------------------------------------
+coverage/
+TestResults/
+*.coverage
+*.coveragexml
+lcov.info

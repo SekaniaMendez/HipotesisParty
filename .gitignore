@@ -128,3 +128,8 @@ TestResults/
 *.coverage
 *.coveragexml
 lcov.info
+# Blender backups and Python asset-tool bytecode
+*.blend1
+*.blend2
+__pycache__/
+*.pyc

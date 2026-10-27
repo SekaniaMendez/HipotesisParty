@@ -1,0 +1,77 @@
+{
+  "generator": "tools/generate_assets.py",
+  "coordinates": "GLB: Y up, face +Z, feet at Y=0",
+  "characters": [
+    {
+      "file": "student_f01.glb",
+      "name": "Lucia",
+      "clips": [
+        "Idle",
+        "Walk",
+        "Celebrate"
+      ]
+    },
+    {
+      "file": "student_f02.glb",
+      "name": "Valeria",
+      "clips": [
+        "Idle",
+        "Walk",
+        "Celebrate"
+      ]
+    },
+    {
+      "file": "student_f03.glb",
+      "name": "Camila",
+      "clips": [
+        "Idle",
+        "Walk",
+        "Celebrate"
+      ]
+    },
+    {
+      "file": "professor.glb",
+      "name": "Profesora Elena",
+      "clips": [
+        "Idle",
+        "Walk",
+        "Celebrate"
+      ]
+    },
+    {
+      "file": "student_m01.glb",
+      "name": "Mateo",
+      "clips": [
+        "Idle",
+        "Walk",
+        "Celebrate"
+      ]
+    },
+    {
+      "file": "student_m02.glb",
+      "name": "Diego",
+      "clips": [
+        "Idle",
+        "Walk",
+        "Celebrate"
+      ]
+    },
+    {
+      "file": "student_m03.glb",
+      "name": "Andres",
+      "clips": [
+        "Idle",
+        "Walk",
+        "Celebrate"
+      ]
+    }
+  ],
+  "props": [
+    "floor.glb",
+    "wall.glb",
+    "podium.glb",
+    "glyph.glb",
+    "pillar.glb"
+  ],
+  "license": "Original project assets; no third-party models or textures."
+}

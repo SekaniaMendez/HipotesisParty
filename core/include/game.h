@@ -1,20 +1,18 @@
-/**
- * @file game.h
- * @brief Declaración de la función game para el bucle principal del juego.
- * @version 1.0
- * @date 2026-10-26
- * @author Daniel Mendez Sanchez
- */
-
 #pragma once
-
+#include <cstdint>
+#include <memory>
+namespace hp { class PartyGame; }
+// GPU resources live between InitWindow and CloseWindow.
 class Game {
  public:
-  /**
-   * @brief Ejecuta el bucle principal del juego.
-   *
-   * Esta función se encarga de actualizar la lógica del juego y dibujar los frames.
-   */
-  static void UpdateDrawFrame();
-  static void drawFrame();
+  explicit Game(std::uint32_t seed = 20261027u, bool smokeTest = false);
+  ~Game();
+  Game(const Game&) = delete;
+  Game& operator=(const Game&) = delete;
+  void UpdateDrawFrame();
+  void drawFrame();
+  bool ShouldQuit() const;
+  int ExitCode() const;
+ private:
+  std::unique_ptr<hp::PartyGame> impl_;
 };

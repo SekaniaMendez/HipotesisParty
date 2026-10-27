@@ -1,6 +1,14 @@
-add_library(GameCore STATIC game.cpp)
-
-target_include_directories(GameCore
-    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
-    PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}
-)
+add_library(GameCore STATIC Maze.cpp Exploration.cpp)
+if(NOT EMSCRIPTEN)
+    # Answer keys and hidden hypotheses belong only to the authority executable.
+    target_sources(GameCore PRIVATE TeamSession.cpp)
+endif()
+target_include_directories(GameCore PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+if(BUILD_TESTING AND NOT EMSCRIPTEN)
+    add_executable(GameCoreTests tests/CoreTests.cpp)
+    target_link_libraries(GameCoreTests PRIVATE GameCore)
+    add_test(NAME GameCoreTests COMMAND GameCoreTests)
+    add_executable(TeamSessionTests tests/TeamSessionTests.cpp)
+    target_link_libraries(TeamSessionTests PRIVATE GameCore)
+    add_test(NAME TeamSessionTests COMMAND TeamSessionTests)
+endif()

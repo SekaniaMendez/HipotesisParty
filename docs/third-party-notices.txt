@@ -1,0 +1,50 @@
+UI y ciclo de escenas adaptados de treasure_labyrinth
+---------------------------------------------------
+Referencia local: /Users/daniel/Dev/treasure_labyrinth
+Componentes: Button, TextDisplay, Scene.
+Adaptaciones en raylib-client/PartyUI.cpp y raylib-client/SceneManager.cpp.
+Se conserva la atribución original:
+
+MIT License
+
+Copyright (c) 2026 Giovanni Mendez
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+Tipografía de interfaz: DejaVu Sans Book
+--------------------------------------
+Archivo distribuido: assets/fonts/interface.ttf
+Origen local: /Users/daniel/Dev/TopoTools/.venv-yolo/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf
+El archivo de fuente se copia sin modificar sus datos ni sus metadatos.
+Copyright (c) 2003 by Bitstream, Inc. All Rights Reserved.
+Copyright (c) 2006 by Tavmjong Bah. All Rights Reserved.
+DejaVu changes are in public domain.
+Licencia completa, copiada del paquete de origen: assets/fonts/LICENSE_DEJAVU.
+
+
+Tipografía de títulos: Playfair Display Regular
+----------------------------------------------
+Archivo distribuido: assets/fonts/heading.ttf
+Origen local: /Users/daniel/Dev/RaylibGames/Caeli/assets/fonts/PlayfairDisplay-VariableFont_wght.ttf
+El archivo de fuente variable se copia sin modificar; el peso predeterminado es 400.
+Copyright 2017 The Playfair Display Project Authors (https://github.com/clauseggers/Playfair-Display), with Reserved Font Name "Playfair Display".
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+El copyright y aviso anteriores se conservan de la tabla name del archivo original.
+Licencia completa: assets/fonts/OFL_PlayfairDisplay.txt.

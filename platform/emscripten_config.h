@@ -20,6 +20,7 @@ inline void emscriptenGameLoop(void* context) {
 }
 
 inline void startWebGame(Game& game) {
-  emscripten_set_main_loop_arg(emscriptenGameLoop, &game, 60, 1);
+  // Let the browser schedule drawing with requestAnimationFrame.
+  emscripten_set_main_loop_arg(emscriptenGameLoop, &game, 0, 1);
 }
 #endif
